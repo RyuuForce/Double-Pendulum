@@ -1,7 +1,7 @@
 float r1 = 200;
 float r2 = 200;
-float m1 = 40;
-float m2 = 40;
+float m1 = 50;
+float m2 = 50;
 float a1 = PI/2;
 float a2 = PI/2;
 float a1_v = 0;
@@ -9,9 +9,19 @@ float a2_v = 0;
 
 float g = 1;
 
+color red   = color(255, 0, 0);
+color orange = color(255,165,0);
+color yellow = color(255,255,0);
+color green = color(0, 255, 0);
+color blue  = color(0, 0, 255);
+color indigo = color(75,0,130);
+color violet = color(238,130,238);
+
 float px2=-1;
 float py2=-1;
 float cx,cy = 0;
+
+int hue = 0;
 
 PGraphics canvas;
 
@@ -69,11 +79,17 @@ void draw() {
 
    
    canvas.beginDraw();
+   canvas.colorMode(HSB,360,100,100);
    canvas.translate(cx,cy);
-   canvas.strokeWeight(4);
-   canvas.stroke(0);
+   canvas.strokeWeight(5);
+   canvas.stroke(hue,100,100);
    if(frameCount > 1 ){
-     canvas.line(px2,py2,x2,y2);
+     if(hue < 360){
+       hue++;
+       canvas.line(px2,py2,x2,y2);
+     } else {
+       hue = 0;
+     }       
    }
    canvas.endDraw();
    
