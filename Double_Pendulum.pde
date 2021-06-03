@@ -9,14 +9,6 @@ float a2_v = 0;
 
 float g = 1;
 
-color red   = color(255, 0, 0);
-color orange = color(255,165,0);
-color yellow = color(255,255,0);
-color green = color(0, 255, 0);
-color blue  = color(0, 0, 255);
-color indigo = color(75,0,130);
-color violet = color(238,130,238);
-
 float px2=-1;
 float py2=-1;
 float cx,cy = 0;
