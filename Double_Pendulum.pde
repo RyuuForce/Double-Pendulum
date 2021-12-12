@@ -29,6 +29,10 @@ void setup() {
 }
 
 void draw() {
+  
+  fill(0,10);
+  rect(0,0,width,height);
+  
   float num1 = -g * (2*m1+m2)*sin(a1);
   float num2 = -m2 * g * sin(a1-2*a2);
   float num3 = -2 * sin(a1-a2)*m2;
@@ -69,12 +73,17 @@ void draw() {
    a1 += a1_v;
    a2 += a2_v;
 
-   
+   //This part of the code draws a rainbow line to follow the path of the double pendulum
    canvas.beginDraw();
    canvas.colorMode(HSB,360,100,100);
    canvas.translate(cx,cy);
    canvas.strokeWeight(5);
    canvas.stroke(hue,100,100);
+   
+   //Adds a little bit of alpha to make the line fade out
+   canvas.fill(0,10);
+   canvas.rect(-cx,-cy,width,height);
+   
    if(frameCount > 1 ){
      if(hue < 360){
        hue++;
